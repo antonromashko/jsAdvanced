@@ -1,0 +1,8 @@
+div {
+    width: 10%;
+    border-style: groove;
+}
+
+#two, #two_second {
+    background-color: grey;
+}

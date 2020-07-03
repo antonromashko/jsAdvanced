@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Attr</title>
+    <style>
+        a[target='_blank'] {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">w3schools.com</a>
+    <a href="http://www.google.com" target="_blank">google.com</a>
+    <a href="http://www.wikipedia.org" target="_self">wikipedia.org</a>
+    <a href="#">Someting</a>
+</body>
+<script>
+    // a[target]
+    const targetAttrElements = document.querySelectorAll('a[target]');
+    for (let i = targetAttrElements.length - 1; i >= 0; i--) {
+          targetAttrElements[i].style.backgroundColor = 'yellow';
+        }
+    // a[target='_blank']
+    const targetBlank = document.querySelector("a[target='_blank']");
+    targetBlank.style.backgroundColor = 'red';
+</script>
+</html>
