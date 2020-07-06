@@ -16,4 +16,3 @@ two.onclick = function () {
   two.id = 'two_second';
   two.innerText = two.id
 };
-
