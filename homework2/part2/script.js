@@ -10,7 +10,6 @@ one.insertAdjacentElement('afterend', two);
 
 two.onclick = function () {
   let twoFirst = document.createElement('div');
-  console.log(twoFirst);
   twoFirst.id = 'two_first';
   twoFirst.insertAdjacentText('afterbegin', twoFirst.id);
   two.insertAdjacentElement('beforebegin', twoFirst);
