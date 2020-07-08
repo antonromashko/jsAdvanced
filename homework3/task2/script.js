@@ -11,8 +11,8 @@ function countElem(text) {
 }
 
 function toggleMessageWindow() {
- modalWrapper.classList.toggle('modal__visible');
-    }
+  modalWrapper.classList.toggle('modal__visible');
+}
 
 function removePreviousUl() {
   if (document.getElementsByTagName('ul').length > 0) {
@@ -44,11 +44,9 @@ function startButton() {
       let li;
       if (i === inputValueList.length - 1 | i === inputValueList.length - 2) {
         li = inputValueList[i].toLowerCase();
-      }
-      else if (i === 0) {
+      } else if (i === 0) {
         li = inputValueList[i].toUpperCase();
-      }
-      else {
+      } else {
         li = inputValueList[i];
       }
       let liElement = document.createElement('li');
