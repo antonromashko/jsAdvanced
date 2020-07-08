@@ -10,16 +10,15 @@
 также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
 обнуляющую отcчет. Также попробуйте изменить код так чтобы отсчет начинался с 30 и заканчивался на 1. -->
 <div class="container">
-  <svg id="svg">
- <circle cx="150" cy="150" r="140" stroke-width="3" fill="#333" />
- <text id="count" x="150" y="-150" dy="20">00:00</text>
-</svg>
+    <svg id="svg">
+        <circle cx="150" cy="150" r="140" stroke-width="3" fill="#333"/>
+        <text id="count" x="150" y="-150" dy="35">0</text>
+    </svg>
     <div>
-    <input id="end" type="button" value="End" onclick="endTimer()">
-     <input id="start" type="button" value="Start" onclick="startTimer(this)">
-        </div>
+        <input id="end" type="button" value="End" onclick="endTimer()">
+        <input id="start" type="button" value="Start" onclick="runPauseButton(this)">
+    </div>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
