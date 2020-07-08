@@ -17,7 +17,7 @@ function toggleMessageWindow() {
 function removePreviousUl() {
   if (document.getElementsByTagName('ul').length > 0) {
     let elem = document.getElementsByTagName('ul')[0];
-    elem.remove()
+    elem.remove();
   }
 }
 
