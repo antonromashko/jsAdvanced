@@ -1,0 +1,54 @@
+.container {
+    display: grid;
+    justify-content: center;
+}
+
+svg {
+    height: 300px;
+    width: 300px;
+    transform: rotate(-90deg);
+    stroke-dasharray: 942px;
+    stroke-dashoffset: 942px;
+}
+
+circle {
+    stroke: darkorange;
+    stroke-width: 8px;
+}
+
+text {
+    transform: rotate(90deg);
+    font-size: 100px;
+    fill: #fff;
+    text-anchor: middle;
+}
+
+input {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-left: 60px;
+}
+
+#start,
+#go-on {
+    border: 5px double green;
+}
+
+#end {
+    border: 5px double #474747;
+
+}
+
+#pause {
+    border: 5px double darkorange;
+    background-color: rgba(255, 166, 0, 0.42);
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+input:active {
+    background: #b5b5b5
+}

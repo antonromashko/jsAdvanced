@@ -1,0 +1,29 @@
+<!--
+    Запросите у пользователя ввести какую-то фразу.
+    Отобразите каждое отдельное слово в виде списка ul li.
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой.
+    Найдите все буквы "а" их количество в модальное окно.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="container">
+    <input type="text">
+    <input type="button" value="Start" onclick="startButton()">
+</div>
+<div class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p></p>
+    </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
