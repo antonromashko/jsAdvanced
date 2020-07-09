@@ -1,0 +1,62 @@
+<!-- Напишите регулярные выражения, которые будут выбирать
+    индекс - 55535 - 5 numbers
+    ip адресс, пример 255.255.255.255
+    цены в долларах - $0.84, $2.84, $4
+    дата в виде - 30/12/2016 - день, месяц, год
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+    <input id="validate" type="button" value="validate">
+</div>
+<div id="container">
+    <div>
+        <p>index</p>
+        <ul id="index">
+            <li>02091</li>
+            <li>0235</li>
+            <li>55535</li>
+            <li>0789321</li>
+            <li>37890</li>
+        </ul>
+    </div>
+    <div>
+        <p>host</p>
+        <ul id="host">
+            <li>255.255.255.</li>
+            <li>255.255.255.255.2555</li>
+            <li>255.aaa.255.255</li>
+            <li>.255.255.255</li>
+            <li>255.255.255.255</li>
+        </ul>
+    </div>
+    <div>
+        <p>money</p>
+        <ul id="money">
+            <li>$0.84, $2.84, $4</li>
+            <li>$0.84, $2.84, $4</li>
+            <li>$0.84, $2.84, $4</li>
+            <li>$0.84, $2.84, $4</li>
+            <li>$0.84, $2.84, $4</li>
+        </ul>
+    </div>
+    <div>
+        <p>date</p>
+        <ul id="date">
+            <li>30/12/2016</li>
+            <li>30/12/2016</li>
+            <li>30/12/2016</li>
+            <li>30/12/2016</li>
+            <li>30/12/2016</li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
