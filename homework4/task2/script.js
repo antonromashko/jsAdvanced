@@ -1,5 +1,9 @@
 const allContainers = document.getElementsByTagName('div');
 
+window.onbeforeunload = function () {
+  return "Данные не сохранены. Точно перейти?"
+};
+
 function getContainerTextColor(lst) {
   let brightness = ((lst[0] * 299) + (lst[1] * 587) + (lst[2] * 114)) / 1000;
   return (brightness > 125) ? 'black' : 'white';
@@ -34,6 +38,3 @@ for (let i = 0; i < allContainers.length; i++) {
     this.style.color = containerTextColor;
   }
 }
-window.onbeforeunload = function () {
-  return "Данные не сохранены. Точно перейти?"
-};
