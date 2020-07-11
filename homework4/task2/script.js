@@ -35,5 +35,5 @@ for (let i = 0; i < allContainers.length; i++) {
   }
 }
 window.onbeforeunload = function () {
-  return "Oops"
+  return "Данные не сохранены. Точно перейти?"
 };
