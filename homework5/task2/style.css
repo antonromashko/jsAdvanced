@@ -1,0 +1,31 @@
+div {
+    width: fit-content;
+    border: 1px solid #888888;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input {
+    background-color: white;
+    font-size: 8px;
+    border: none
+}
+
+input:hover {
+    background-color: white;
+    font-size: 15px;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+input:active {
+    background-color: white;
+    border: none;
+    font-size: 8px;
+}
+
+.remove {
+    display: none;
+}
