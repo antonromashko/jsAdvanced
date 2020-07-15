@@ -1,8 +1,9 @@
-const inputButton = document.querySelectorAll('input');
+const myBody = document.body;
+
 const removeDiv = (e) => {
-  e.target.parentElement.classList.add('remove')
+  if (e.target.tagName === 'INPUT') {
+    e.target.parentElement.classList.add('remove');
+  }
 };
 
-for (let i = 0; i < inputButton.length; i++) {
-  inputButton[i].addEventListener('click', removeDiv)
-}
+myBody.addEventListener('click', removeDiv);
