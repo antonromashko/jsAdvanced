@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person {
+            constructor(strength, health, name) {
+                this.strength = strength;
+                this.health = health;
+                this.name = name
+            }
+        }
+
+        class Hero extends Person {
+            constructor(strength, health, name) {
+                super(strength, health, name)
+            }
+
+            regeneration() {
+                this.health = 100
+            }
+        }
+
+        class Enemies extends Person {
+            constructor(strength, health, name) {
+                super(strength, health, name)
+            }
+
+            sayGrrr() {
+                console.log('grrrr')
+            }
+        }
+
+        const hero = new Hero(50, 100, 'Js');
+
+        const getRandomInt = (max) => {
+            return ~~(Math.random() * ~~(max) + 1)
+        }
+
+        const battle = () => {
+          const enemyArr = new Array(getRandomInt(2))
+          let counter = 1;
+          for (let index = 0; index < enemyArr.length; index++) {
+            enemyArr[index] = new Enemies(getRandomInt(45), 75, 'php' + counter++);
+          }
+          while (hero.health > 0 && enemyArr.length > 0) {
+            for (let index = 0; index < enemyArr.length; index++) {
+              if (enemyArr[index].health <= 0) {
+                delete enemyArr[index]
+              } else {
+                enemyArr[index].health -= hero.strength;
+                console.log(`${hero.name} hits ${enemyArr[index].name} with ${hero.strength}dmg. \n ${enemyArr[index].name} health is ${enemyArr[index].health}`);
+                hero.health -= enemyArr[index].strength;
+                console.log(`${enemyArr[index].name} hits ${hero.name} with ${enemyArr[index].strength}dmg. \n ${hero.name} health is ${hero.health}`);
+              }
+              if (hero.health <= 0) {
+                enemyArr[index].sayGrrr()
+              } else if (enemyArr.length === 0) {
+                hero.regeneration();
+              }
+            }
+          }
+        }
+</script>
+</body>
+</html>
