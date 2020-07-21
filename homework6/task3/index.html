@@ -1,0 +1,22 @@
+<!-- Переделайте примерм 013 через работу атрибутов.
+ Попробуйте варианты с рефакторингом -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Пример проверки достоверности ввода</title>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form name="form1" autocomplete="off">
+            Name:
+        <input type="text" name="userName" onchange="change(this)"/><br />
+            email:
+        <input type="text" name="email" onchange="change(this)"/><br />
+            zipcode:
+        <input type="text" name="zip" onchange="change(this)"/><br />
+        <input type="submit" />
+    </form>
+</body>
+</html>
