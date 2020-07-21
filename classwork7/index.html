@@ -29,8 +29,8 @@
                 super(strength, health, name)
             }
 
-            sayGrrr() {
-                console.log('grrrr')
+            sayGrr() {
+                console.log('grr')
             }
         }
 
@@ -57,13 +57,14 @@
                 console.log(`${enemyArr[index].name} hits ${hero.name} with ${enemyArr[index].strength}dmg. \n ${hero.name} health is ${hero.health}`);
               }
               if (hero.health <= 0) {
-                enemyArr[index].sayGrrr()
+                enemyArr[index].sayGrr()
               } else if (enemyArr.length === 0) {
                 hero.regeneration();
               }
             }
           }
         }
+        battle()
 </script>
 </body>
 </html>
