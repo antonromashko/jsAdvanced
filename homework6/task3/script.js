@@ -21,7 +21,7 @@ const init = () => {
 }
 
 const change = (elem) => {
-  elem.className = validateRules[elem.name].test(elem.value) === false ? "invalid": "valid"
+  elem.className = validateRules[elem.name].test(elem.value) === false ? "invalid" : "valid"
 }
 
 window.addEventListener("load", init, false);
