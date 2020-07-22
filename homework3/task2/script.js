@@ -42,7 +42,7 @@ function startButton() {
     console.log(ulElement);
     for (let i = inputValueList.length - 1; i >= 0; i--) {
       let li;
-      if (i === inputValueList.length - 1 | i === inputValueList.length - 2) {
+      if (i === inputValueList.length - 1 || i === inputValueList.length - 2) {
         li = inputValueList[i].toLowerCase();
       } else if (i === 0) {
         li = inputValueList[i].toUpperCase();
