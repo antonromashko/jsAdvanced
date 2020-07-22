@@ -16,18 +16,12 @@ const init = () => {
     if (invalid) {
       alert("Допущены ошибки при заполнении формы.");
       event.preventDefault();
-      return false; // отмена отправки формы.
     }
   }
 }
 
 const change = (elem) => {
-  let res = validateRules[elem.name].test(elem.value);
-  if (res === false) {
-    elem.className = "invalid";
-  } else {
-    elem.className = "valid";
-  }
+  elem.className = validateRules[elem.name].test(elem.value) === false ? "invalid": "valid"
 }
 
 window.addEventListener("load", init, false);
