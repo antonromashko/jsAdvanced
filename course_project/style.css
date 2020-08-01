@@ -1,0 +1,87 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url('img/back.jpg') ;
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+    display: block;
+    position: relative;
+    width: 22%;
+    height: 90%;
+    margin-left: 1%;
+    padding-top: 5%;
+}
+
+.row {
+    position: relative;
+    width: 90%;
+    height: 20%;
+    display: inline-block;
+    padding: 3% 5% 3% 5%;
+}
+
+.item {
+    position: relative;
+    width: 45%;
+    height: 100%;
+    display: inline-flex;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+    perspective: 1000px;
+}
+
+p {
+    position: absolute;
+    margin: 67px;
+}
+
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: darkgrey;
+  color: black;
+  box-shadow: 7px 8px 13px 0 rgba(0,0,0,0.75);
+  border-color: darkgrey;
+  border-radius: 10px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: grey;
+  box-shadow: 7px 8px 13px 0 rgba(0,0,0,0.75);
+  border-color: darkgrey;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
