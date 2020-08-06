@@ -1,36 +1,5 @@
-export class PeoplePassport {
-  constructor(data) {
-    this.data = data
-    this.tableKeys = ['name', 'gender', 'birth_year', 'homeworld', 'films', 'species']
-  }
-
-  getPerson(name) {
-    let person = this.data['results'].filter(card => card.name === name)[0];
-    let tableFields = []
-    for (const key of this.tableKeys) {
-      tableFields.push(person[key])
-    }
-    console.log(tableFields)
-    return tableFields
-  }
-
-  fillPage(cards) {
-    for (let i = 0; i < this.data['results'].length; i++) {
-      cards[i].innerText = this.data['results'][i].name;
-    }
-  }
-}
-
-export class ApiData {
-  async getData(page) {
-  let response = await fetch(page);
-  return await response.json();
-}
-}
-
-export class Personage extends ApiData {
+export class Personage {
   constructor(name, gender, birthYear, homeWorld, films, species) {
-    super()
     this.name = name
     this.gender = gender
     this.birthYear = birthYear
@@ -38,6 +7,11 @@ export class Personage extends ApiData {
     this.films = films
     this.species = species
     this.table = document.querySelector('table')
+  }
+
+  async getData(page) {
+    let response = await fetch(page);
+    return await response.json();
   }
 
   tableBody() {
