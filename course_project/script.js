@@ -1,58 +1,83 @@
-import { PeoplePassport, Personage, ApiData } from './src/passport.js'
+import { People } from './src/people.js'
+import { Personage } from './src/personage.js'
+import { STAR_WARS } from './consts/main.js'
 
-
-// async function getData(page) {
-//   let response = await fetch(page);
-//   return await response.json();
-// }
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const main = document.querySelector('.main')
-  const modal = document.getElementById("myModal");
-  const span = document.getElementsByClassName("close")[0];
-  let pageCards = document.querySelectorAll('div.flip-card-front');
+
+  const people = new People();
   let clickedCard;
-  let firstPage = 'https://swapi.dev/api/people/?page=1'
-  const apiData = new ApiData()
 
-  let data = await apiData.getData(firstPage)
-  const people = new PeoplePassport(data)
-  people.fillPage(pageCards)
+  async function newPageList(page) {
+    if (page === STAR_WARS.FIRST_PAGE_URL) {
+      STAR_WARS.BUTTONS.PREVIOUS_BUTTON.setAttribute('disabled', 'disabled');
+    }
+    await people.getData(page);
+    people.fillPage(STAR_WARS.PAGE_CARDS_DIV);
+  }
 
-  async function fillCard(name) {
+  newPageList(STAR_WARS.FIRST_PAGE_URL).then();
+
+  async function fillModal(name) {
     let person = people.getPerson(name);
-    let personage = new Personage(...person)
-    await personage.fillTable()
+    let personage = new Personage(...person);
+    await personage.fillTable();
   }
+
   async function clickButton(event) {
-  if (event.target.className === 'flip-card-front') {
-    let parentElem = event.target.parentElement;
-    clickedCard = parentElem;
-    await fillCard(event.target.innerHTML);
-    parentElem.classList.add('flipped');
-    modal.style.display = "block";
+    if (event.target.className === 'flip-card-front') {
+      STAR_WARS.MAIN_DIV.classList.add('disabled')
+      let parentElem = event.target.parentElement;
+      clickedCard = parentElem;
+      await fillModal(event.target.innerHTML);
+      parentElem.classList.add('flipped');
+      STAR_WARS.PERSONAGE_MODAL.style.display = "block";
+    }
   }
-}
 
-  main.addEventListener('click', clickButton)
+  async function nextPageMove(event) {
+    if (!people.data['previous']) {
+      STAR_WARS.BUTTONS.PREVIOUS_BUTTON.removeAttribute('disabled');
+    }
+    event.target.setAttribute('disabled', 'disabled')
+    let nextPage = people.data['next']
+    if (nextPage) {
+      STAR_WARS.MAIN_DIV.classList.add('disabled')
+      await newPageList(nextPage)
+      STAR_WARS.MAIN_DIV.classList.remove('disabled');
+      if (people.data['next']) {
+        event.target.removeAttribute('disabled')
+      }
+    }
+  }
 
-  span.onclick = function() {
-  clickedCard.classList.remove('flipped')
-  let tbody = document.querySelector('tbody')
-  modal.style.display = "none";
-  tbody.remove()
+  async function prevPageMove(event) {
+    if (!people.data['next']) {
+      STAR_WARS.BUTTONS.NEXT_BUTTON.removeAttribute('disabled');
+    }
+    event.target.setAttribute('disabled', 'disabled')
+    let prevPage = people.data['previous']
+    if (prevPage) {
+      STAR_WARS.MAIN_DIV.classList.add('disabled')
+      await newPageList(prevPage)
+      STAR_WARS.MAIN_DIV.classList.remove('disabled');
+      if (people.data['previous']) {
+        event.target.removeAttribute('disabled')
+      }
+    }
+  }
 
-}
+  function backToList () {
+    clickedCard.classList.remove('flipped');
+    let tbody = document.querySelector('tbody');
+    STAR_WARS.PERSONAGE_MODAL.style.display = "none";
+    tbody.remove();
+    STAR_WARS.MAIN_DIV.classList.remove('disabled');
+  }
 
-} )
+  STAR_WARS.MAIN_DIV.addEventListener('click', clickButton);
+  STAR_WARS.BUTTONS.NEXT_BUTTON.addEventListener('click', nextPageMove);
+  STAR_WARS.BUTTONS.PREVIOUS_BUTTON.addEventListener('click', prevPageMove)
+  STAR_WARS.CLOSE_MODAL_BUTTON.addEventListener('click', backToList)
 
-let pageData = {}
-
-// previousButton.addEventListener('click', function() {
-//   main.style.animationName = 'mainaway';
-//   main.style.animationDuration = '2s';
-//   second.classList.remove('second');
-//   main.style.animationName = 'secondway';
-//   main.style.animationDuration = '2s';
-//   main.classList.add('second');
-// })
+})

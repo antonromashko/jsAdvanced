@@ -235,5 +235,9 @@ tbody {
 }
 
 button:focus {
-    outline-width: 0;
+  outline-width: 0;
+}
+
+.disabled {
+  pointer-events: none;
 }
