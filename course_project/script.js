@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       STAR_WARS.BUTTONS.PREVIOUS_BUTTON.setAttribute('disabled', 'disabled');
     }
     await people.getData(page);
-    people.fillPage(STAR_WARS.PAGE_CARDS_DIV);
+    people.fillPage(document.querySelectorAll('div.flip-card-front'),);
   }
 
   newPageList(STAR_WARS.FIRST_PAGE_URL).then();
@@ -35,6 +35,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
+  function removeMain() {
+    while (STAR_WARS.MAIN_DIV.firstChild) {
+      STAR_WARS.MAIN_DIV.removeChild(STAR_WARS.MAIN_DIV.lastChild);
+    }
+  }
+
   async function nextPageMove(event) {
     if (!people.data['previous']) {
       STAR_WARS.BUTTONS.PREVIOUS_BUTTON.removeAttribute('disabled');
@@ -49,6 +55,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     let nextPage = people.data['next'];
     if (nextPage) {
       STAR_WARS.MAIN_DIV.classList.add('disabled');
+      removeMain()
       await newPageList(nextPage);
       STAR_WARS.MAIN_DIV.classList.remove('disabled');
       if (people.data['next']) {
@@ -71,6 +78,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     let prevPage = people.data['previous'];
     if (prevPage) {
       STAR_WARS.MAIN_DIV.classList.add('disabled');
+      removeMain()
       await newPageList(prevPage);
       STAR_WARS.MAIN_DIV.classList.remove('disabled');
       if (people.data['previous']) {
