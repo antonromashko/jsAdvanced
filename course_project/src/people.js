@@ -28,4 +28,25 @@ export class People {
       }
     }
   }
+
+  fillMainDiv() {
+    let countElements = this.data.length;
+    let subRowDiv = document.createElement('div');
+    subRowDiv.className = 'sub-row';
+    for (let i = 0; i < 2; i++) {
+      let subItemDiv = document.createElement('div');
+      subItemDiv.className = 'sub-item';
+      let flipCardInner = document.createElement('div');
+      flipCardInner.className = 'flip-card-inner';
+      let flipCardFront = document.createElement('div');
+      let flipCardBack = document.createElement('div');
+      flipCardFront.className = 'flip-card-front';
+      flipCardBack.className = 'flip-card-back';
+      flipCardInner.insertAdjacentElement('beforeend', flipCardFront);
+      flipCardInner.insertAdjacentElement('beforeend', flipCardBack);
+      subItemDiv.insertAdjacentElement('afterbegin', flipCardInner);
+      subRowDiv.insertAdjacentElement('afterbegin', subItemDiv);
+    }
+
+  }
 }

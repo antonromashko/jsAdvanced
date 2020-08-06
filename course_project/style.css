@@ -21,8 +21,6 @@ body, html {
     height: 90%;
     margin-left: 1%;
     padding-top: 5%;
-    /*animation-name: mainaway;*/
-    /*animation-duration: 2s;*/
 }
 
 .sub-row {
@@ -46,8 +44,6 @@ body, html {
     perspective: 1000px;
 }
 
-
-/* This container is needed to position the front and back side */
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -57,12 +53,10 @@ body, html {
   transform-style: preserve-3d;
 }
 
-/* Position the front and back side */
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
-  /*padding-top: 25%;*/
   backface-visibility: hidden;
   font-family: "Lucida Console", Courier, monospace;
   font-size: 20px;
@@ -70,7 +64,6 @@ body, html {
   text-transform: uppercase;
 }
 
-/* Style the front side (fallback if image is missing) */
 div.flip-card-front {
   color: white;
   box-shadow: 7px 8px 13px 0 rgba(0,0,0,0.75);
@@ -86,12 +79,17 @@ div.flip-card-front {
 }
 
 div.flip-card-front:hover, span.flip-card-front:hover {
-  text-shadow: 1px 1px 2px black, 0 0 1em greenyellow;
+  text-shadow: 1px 1px 2px black, 0 0 45px greenyellow;
+  border-radius: 20px;
+  animation-name: borderdiv;
+  animation-duration: 0.5s;
 }
 
+@keyframes borderdiv {
+  from {border-radius: 10px;}
+  to {border-radius: 20px;}
+}
 
-
-/* Style the back side */
 .flip-card-back {
   box-shadow: 7px 8px 13px 0 rgba(0,0,0,0.75);
   border: 1px solid greenyellow;
@@ -109,18 +107,17 @@ div.flip-card-front:hover, span.flip-card-front:hover {
 }
 
 .people-modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
 }
 
-/* Modal Content/Box */
 .people-modal-content {
     position: relative;
     padding: 23px;
@@ -138,17 +135,6 @@ div.flip-card-front:hover, span.flip-card-front:hover {
   to {left: 0; opacity: 1}
 }
 
-/*@keyframes mainaway {*/
-/*  from {top: 0; opacity: 0}*/
-/*  to {top: -1200px; opacity: 1}*/
-/*}*/
-
-/*@keyframes secondway {*/
-/*  from {top: 1200px; opacity: 0}*/
-/*  to {top: -1200px; opacity: 1}*/
-/*}*/
-
-/* The Close Button */
 .close {
   color: #aaa;
   float: right;
@@ -192,11 +178,6 @@ tbody {
     border: 1px solid hotpink;
     text-align: inherit;
 }
-
-/*[src="img/Jedi.png"] {*/
-/*    position: relative;*/
-/*    height: 40%;*/
-/*}*/
 
 .page-buttons {
     position: absolute;
