@@ -21,7 +21,15 @@ body, html {
     height: 90%;
     margin-left: 1%;
     padding-top: 5%;
+    /*animation-name: mainaway;*/
+    /*animation-duration: 2s;*/
 }
+
+/*.second {*/
+/*    display: none;*/
+/*    animation-name: secondway;*/
+/*    animation-duration: 2s;*/
+/*}*/
 
 .sub-row {
     box-sizing: border-box;
@@ -136,6 +144,16 @@ div.flip-card-front:hover, span.flip-card-front:hover {
   to {left: 0; opacity: 1}
 }
 
+@keyframes mainaway {
+  from {top: 0; opacity: 0}
+  to {top: -1200px; opacity: 1}
+}
+
+@keyframes secondway {
+  from {top: 1200px; opacity: 0}
+  to {top: -1200px; opacity: 1}
+}
+
 /* The Close Button */
 .close {
   color: #aaa;
@@ -184,4 +202,38 @@ tbody {
 [src="img/Jedi.png"] {
     position: relative;
     height: 40%;
+}
+
+.page-buttons {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    left: 22%;
+    justify-content: center;
+    align-items: center;
+    top: 40%;
+}
+
+#next, #previous {
+    border-radius: 50%;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    border: none;
+    background: none;
+}
+
+#next:hover, #previous:hover {
+    background-color: #e5e5e5;
+}
+
+#next:active, #previous:active {
+  box-shadow: 0 0 5px 2px #e0e0e0;
+}
+
+button:focus {
+    outline-width: 0;
 }
