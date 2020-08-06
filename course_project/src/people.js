@@ -31,7 +31,11 @@ export class People {
 
   fillMainDiv() {
     let countElements = this.data.length;
-    let subRowDiv = document.createElement('div');
+    function filler(elem) {
+      if (elem < 0) {
+        return
+      } else {
+        let subRowDiv = document.createElement('div');
     subRowDiv.className = 'sub-row';
     for (let i = 0; i < 2; i++) {
       let subItemDiv = document.createElement('div');
@@ -47,6 +51,8 @@ export class People {
       subItemDiv.insertAdjacentElement('afterbegin', flipCardInner);
       subRowDiv.insertAdjacentElement('afterbegin', subItemDiv);
     }
-
+      }
+      filler(countElements/2 - 1)
+    }
   }
 }
