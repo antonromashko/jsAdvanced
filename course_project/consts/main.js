@@ -1,4 +1,5 @@
 export const STAR_WARS = {
+  PAGE_DIV: document.querySelector('.bg'),
   MAIN_DIV: document.querySelector('.main'),
   PERSONAGE_MODAL: document.getElementById("myModal"),
   CLOSE_MODAL_BUTTON: document.querySelector(".close"),

@@ -29,6 +29,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       STAR_WARS.MAIN_DIV.classList.add('disabled');
       let parentElem = event.target.parentElement;
       clickedCard = parentElem;
+      let personageName = event.target.innerHTML;
+      event.target.nextElementSibling.style.backgroundImage = `url('img/${personageName.toLowerCase()}.png')`
       await fillModal(event.target.innerHTML);
       parentElem.classList.add('flipped');
       STAR_WARS.PERSONAGE_MODAL.style.display = "block";
@@ -54,10 +56,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     let nextPage = people.data['next'];
     if (nextPage) {
-      STAR_WARS.MAIN_DIV.classList.add('disabled');
+      STAR_WARS.PAGE_DIV.classList.add('disabled');
       removeMain()
       await newPageList(nextPage);
-      STAR_WARS.MAIN_DIV.classList.remove('disabled');
+      STAR_WARS.PAGE_DIV.classList.remove('disabled');
       if (people.data['next']) {
         event.target.removeAttribute('disabled');
       }
@@ -77,10 +79,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     let prevPage = people.data['previous'];
     if (prevPage) {
-      STAR_WARS.MAIN_DIV.classList.add('disabled');
+      STAR_WARS.PAGE_DIV.classList.add('disabled');
       removeMain()
       await newPageList(prevPage);
-      STAR_WARS.MAIN_DIV.classList.remove('disabled');
+      STAR_WARS.PAGE_DIV.classList.remove('disabled');
       if (people.data['previous']) {
         event.target.removeAttribute('disabled');
       }

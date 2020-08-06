@@ -85,6 +85,10 @@ div.flip-card-front:hover, span.flip-card-front:hover {
   animation-duration: 0.5s;
 }
 
+div.flip-card-front:active, span.flip-card-front:active {
+    box-shadow: 0 0 22px 3px greenyellow;
+}
+
 @keyframes borderdiv {
   from {border-radius: 10px;}
   to {border-radius: 20px;}
@@ -95,8 +99,8 @@ div.flip-card-front:hover, span.flip-card-front:hover {
   border: 1px solid greenyellow;
   transform: rotateY(180deg);
   border-radius: 10px;
-  background-image: url('img/star.png');
-  background-position: center;
+  /*background-image: url('img/star.png');*/
+  /*background-position: center;*/
   background-repeat: no-repeat;
   background-size: cover;
 }
