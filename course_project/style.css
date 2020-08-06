@@ -25,12 +25,6 @@ body, html {
     /*animation-duration: 2s;*/
 }
 
-/*.second {*/
-/*    display: none;*/
-/*    animation-name: secondway;*/
-/*    animation-duration: 2s;*/
-/*}*/
-
 .sub-row {
     box-sizing: border-box;
     position: relative;
@@ -144,15 +138,15 @@ div.flip-card-front:hover, span.flip-card-front:hover {
   to {left: 0; opacity: 1}
 }
 
-@keyframes mainaway {
-  from {top: 0; opacity: 0}
-  to {top: -1200px; opacity: 1}
-}
+/*@keyframes mainaway {*/
+/*  from {top: 0; opacity: 0}*/
+/*  to {top: -1200px; opacity: 1}*/
+/*}*/
 
-@keyframes secondway {
-  from {top: 1200px; opacity: 0}
-  to {top: -1200px; opacity: 1}
-}
+/*@keyframes secondway {*/
+/*  from {top: 1200px; opacity: 0}*/
+/*  to {top: -1200px; opacity: 1}*/
+/*}*/
 
 /* The Close Button */
 .close {
@@ -199,10 +193,10 @@ tbody {
     text-align: inherit;
 }
 
-[src="img/Jedi.png"] {
-    position: relative;
-    height: 40%;
-}
+/*[src="img/Jedi.png"] {*/
+/*    position: relative;*/
+/*    height: 40%;*/
+/*}*/
 
 .page-buttons {
     position: absolute;

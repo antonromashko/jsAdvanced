@@ -13,9 +13,9 @@ export class People {
   getPerson(name) {
     if (this.data) {
       let person = this.data['results'].filter(card => card.name === name)[0];
-      let tableFields = []
+      let tableFields = [];
       for (const key of this.tableKeys) {
-        tableFields.push(person[key])
+        tableFields.push(person[key]);
       }
       return tableFields
     }

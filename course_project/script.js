@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   async function clickButton(event) {
     if (event.target.className === 'flip-card-front') {
-      STAR_WARS.MAIN_DIV.classList.add('disabled')
+      STAR_WARS.MAIN_DIV.classList.add('disabled');
       let parentElem = event.target.parentElement;
       clickedCard = parentElem;
       await fillModal(event.target.innerHTML);
@@ -39,14 +39,20 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (!people.data['previous']) {
       STAR_WARS.BUTTONS.PREVIOUS_BUTTON.removeAttribute('disabled');
     }
-    event.target.setAttribute('disabled', 'disabled')
-    let nextPage = people.data['next']
+    event.target.setAttribute('disabled', 'disabled');
+
+    STAR_WARS.MAIN_DIV.animate([
+      {opacity: 0.8},
+      {opacity: 1}],
+    {duration: 500});
+
+    let nextPage = people.data['next'];
     if (nextPage) {
-      STAR_WARS.MAIN_DIV.classList.add('disabled')
-      await newPageList(nextPage)
+      STAR_WARS.MAIN_DIV.classList.add('disabled');
+      await newPageList(nextPage);
       STAR_WARS.MAIN_DIV.classList.remove('disabled');
       if (people.data['next']) {
-        event.target.removeAttribute('disabled')
+        event.target.removeAttribute('disabled');
       }
     }
   }
@@ -55,14 +61,20 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (!people.data['next']) {
       STAR_WARS.BUTTONS.NEXT_BUTTON.removeAttribute('disabled');
     }
-    event.target.setAttribute('disabled', 'disabled')
-    let prevPage = people.data['previous']
+    event.target.setAttribute('disabled', 'disabled');
+
+    STAR_WARS.MAIN_DIV.animate([
+      {opacity: 0.8},
+      {opacity: 1}],
+    {duration: 500});
+
+    let prevPage = people.data['previous'];
     if (prevPage) {
-      STAR_WARS.MAIN_DIV.classList.add('disabled')
-      await newPageList(prevPage)
+      STAR_WARS.MAIN_DIV.classList.add('disabled');
+      await newPageList(prevPage);
       STAR_WARS.MAIN_DIV.classList.remove('disabled');
       if (people.data['previous']) {
-        event.target.removeAttribute('disabled')
+        event.target.removeAttribute('disabled');
       }
     }
   }
