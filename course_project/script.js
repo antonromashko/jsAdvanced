@@ -13,10 +13,15 @@ window.addEventListener('DOMContentLoaded', async () => {
       STAR_WARS.BUTTONS.PREVIOUS_BUTTON.setAttribute('disabled', 'disabled');
     }
     await people.getData(page);
-    people.fillPage(document.querySelectorAll('div.flip-card-front'),);
+    people.fillPage(document.querySelectorAll('div.flip-card-front'));
+    window.localStorage.setItem('page', page)
   }
 
-  newPageList(STAR_WARS.FIRST_PAGE_URL).then();
+  if (window.localStorage.page) {
+    await newPageList(window.localStorage.page);
+  } else {
+    await newPageList(STAR_WARS.FIRST_PAGE_URL);
+  }
 
   async function fillModal(name) {
     let person = people.getPerson(name);
@@ -34,8 +39,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         backSide.style.backgroundImage = `url('img/${personageName.toLowerCase()}.png')`;
         STAR_WARS.AVATAR.setAttribute('src', `img/${personageName.toLowerCase()}.png`);
         STAR_WARS.AVATAR.onerror = () => {
-          STAR_WARS.AVATAR.setAttribute('src', `img/star.png`);
-          backSide.style.backgroundImage = `url('img/star.png')`;
+          STAR_WARS.AVATAR.setAttribute('src', STAR_WARS.BASE_IMAGE);
+          backSide.style.backgroundImage = `url('${STAR_WARS.BASE_IMAGE}')`;
         }
       STAR_WARS.AVATAR.style.display = 'block';
       await fillModal(event.target.innerHTML);

@@ -4,6 +4,7 @@ export const STAR_WARS = {
   PERSONAGE_MODAL: document.getElementById("myModal"),
   CLOSE_MODAL_BUTTON: document.querySelector(".close"),
   AVATAR: document.querySelector('img.avatar'),
+  BASE_IMAGE: 'img/star.png',
   BUTTONS: {
     NEXT_BUTTON: document.querySelector('#next'),
     PREVIOUS_BUTTON: document.querySelector('#previous')
