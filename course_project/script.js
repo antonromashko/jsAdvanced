@@ -30,7 +30,14 @@ window.addEventListener('DOMContentLoaded', async () => {
       let parentElem = event.target.parentElement;
       clickedCard = parentElem;
       let personageName = event.target.innerHTML;
-      event.target.nextElementSibling.style.backgroundImage = `url('img/${personageName.toLowerCase()}.png')`
+      let backSide = event.target.nextElementSibling
+        backSide.style.backgroundImage = `url('img/${personageName.toLowerCase()}.png')`;
+        STAR_WARS.AVATAR.setAttribute('src', `img/${personageName.toLowerCase()}.png`);
+        STAR_WARS.AVATAR.onerror = () => {
+          STAR_WARS.AVATAR.setAttribute('src', `img/star.png`);
+          backSide.style.backgroundImage = `url('img/star.png')`;
+        }
+      STAR_WARS.AVATAR.style.display = 'block';
       await fillModal(event.target.innerHTML);
       parentElem.classList.add('flipped');
       STAR_WARS.PERSONAGE_MODAL.style.display = "block";

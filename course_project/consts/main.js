@@ -3,6 +3,7 @@ export const STAR_WARS = {
   MAIN_DIV: document.querySelector('.main'),
   PERSONAGE_MODAL: document.getElementById("myModal"),
   CLOSE_MODAL_BUTTON: document.querySelector(".close"),
+  AVATAR: document.querySelector('img.avatar'),
   BUTTONS: {
     NEXT_BUTTON: document.querySelector('#next'),
     PREVIOUS_BUTTON: document.querySelector('#previous')
